@@ -1,0 +1,23 @@
+<h1>Create a cocktail</h1>
+
+<%=form_for @cocktail do |f|%>
+<p>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.submit %>
+  <%end%>
+</p>
+<ul>
+  <% @cocktail.each do |cocktail|%>
+    <li>
+      <%= @cocktail.name %>
+      <% link_to 'Show', cocktails_path%>
+      <% link_to 'Edit', edit_cocktail_path(cocktail)%>
+      <% link_to 'Delete', cocktail, method: :delete, "data-confirm" => "are you sure?" %>
+    </li>
+  <%end%>
+</ul>

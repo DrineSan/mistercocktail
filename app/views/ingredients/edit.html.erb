@@ -1,0 +1,18 @@
+<h1>Rename an ingredient</h1>
+
+<%=form_for @ingredient do |f|%>
+<p>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+  <%end%>
+</p>
+<ul>
+  <% @ingredient.each do |ingredient|%>
+    <li>
+      <%= @ingredient.name %>
+      <% link_to 'Edit', edit_ingredient_path(ingredient)%>
+      <% link_to 'Delete', ingredient, method: :delete, "data-confirm" => "are you sure?" %>
+    </li>
+  <%end%>
+</ul>
